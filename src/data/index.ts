@@ -27,7 +27,7 @@ export const CARDS = [
   {
     title: 'Design',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam alias placeat temporibus mollitia doloribus. Consequatur aperiam facilis culpa fuga quia! Labore, sequi! Optio officiis obcaecati tempora voluptates consequuntur, placeat ad.',
+      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
     services: [
       ['Web app', 'Branding'],
       ['Mobile app', 'Logo'],
@@ -38,7 +38,7 @@ export const CARDS = [
   {
     title: 'Fullstack development',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam alias placeat temporibus mollitia doloribus. Consequatur aperiam facilis culpa fuga quia! Labore, sequi! Optio officiis obcaecati tempora voluptates consequuntur, placeat ad.',
+      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
     services: [
       ['Online shop', 'Web application'],
       ['CMS', 'API Development'],
@@ -49,7 +49,7 @@ export const CARDS = [
   {
     title: 'Mobile development',
     description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam alias placeat temporibus mollitia doloribus. Consequatur aperiam facilis culpa fuga quia! Labore, sequi! Optio officiis obcaecati tempora voluptates consequuntur, placeat ad.',
+      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
     services: [['Android', 'IOS']],
     number: '03.',
     classes: 'border-t border-gray-1/50',
