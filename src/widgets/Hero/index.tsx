@@ -87,7 +87,7 @@ const Hero = () => {
                 ? 'bg-gray-400/80'
                 : 'bg-gray-800/60'
               }
-              w-[95vw] h-[95vw] sm:w-[85vw] sm:h-[85vw] md:w-[70vw] md:h-[70vw] lg:w-[60vw] lg:h-[60vw] xl:w-[50vw] xl:h-[50vw] 2xl:w-[45vw] 2xl:h-[45vw]`}
+              w-[150vw] h-[150vw] sm:w-[140vw] sm:h-[140vw] md:w-[120vw] md:h-[120vw] lg:w-[100vw] lg:h-[100vw] xl:w-[90vw] xl:h-[90vw] 2xl:w-[80vw] 2xl:h-[80vw]`}
           />
 
           <motion.h1
