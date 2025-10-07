@@ -21,7 +21,7 @@ const Index: FC<Props> = () => {
           LET&apos;S CONNECT
         </h3>
         <p className="mt-6 text-lg md:text-xl lg:text-2xl font-normal text-text-1-light/80 dark:text-gray-300 leading-relaxed transition-colors duration-300 drop-shadow-sm">
-          Let's collaborate to build smart, innovative software that drives your brand forward and shapes your digital future.
+          Let&apos;s collaborate to build smart, innovative software that drives your brand forward and shapes your digital future.
         </p>
         <Button
           onClick={handleFormToggle}

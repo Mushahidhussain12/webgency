@@ -11,12 +11,16 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 
 import '@/shared/styles/globals.scss';
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const [dimension, setDimension] = useState<any>(null);
+
+
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -39,6 +43,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

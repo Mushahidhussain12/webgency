@@ -2,6 +2,7 @@
 
 import { FC, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionOpacity from '@/components/ui/SectionOpacity';
@@ -77,7 +78,7 @@ const Index: FC<Props> = () => {
                             variants={itemVariants}
                             className="mt-4 md:mt-6 text-sm md:text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto px-4"
                         >
-                            We're proud to work with industry leaders and innovative companies
+                            We&apos;re proud to work with industry leaders and innovative companies
                         </motion.p>
                     </motion.div>
 
@@ -129,9 +130,11 @@ const Index: FC<Props> = () => {
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     <div className="bg-white/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-border-light/30 dark:border-gray-1/30 shadow-md hover:shadow-lg transition-all duration-300 w-full">
-                                        <img
+                                        <Image
                                             src={company.logo}
                                             alt={company.name}
+                                            width={120}
+                                            height={32}
                                             className="h-5 md:h-6 lg:h-8 w-auto object-contain transition-all duration-300 mx-auto"
                                             loading="lazy"
                                         />

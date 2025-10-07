@@ -115,7 +115,7 @@ const Index: FC<Props> = () => {
                             variants={itemVariants}
                             className="mt-4 md:mt-6 text-sm md:text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto px-4"
                         >
-                            Ready to start your next project? Let's discuss how we can help bring your vision to life.
+                            Ready to start your next project? Let&apos;s discuss how we can help bring your vision to life.
                         </motion.p>
                     </motion.div>
 
@@ -127,7 +127,7 @@ const Index: FC<Props> = () => {
                                     Get in Touch
                                 </h3>
                                 <p className="text-sm md:text-base text-text-1-light/70 dark:text-text-1-dark/70 leading-relaxed mb-6 md:mb-8">
-                                    We're always excited to work on new projects. Send us a message and we'll get back to you within 24 hours.
+                                    We&apos;re always excited to work on new projects. Send us a message and we&apos;ll get back to you within 24 hours.
                                 </p>
                             </div>
 
