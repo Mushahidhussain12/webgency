@@ -8,22 +8,37 @@
   margin: 0;
 
   &::selection {
-    @apply bg-primary text-bg-1;
+    @apply bg-primary-light dark:bg-primary-dark text-bg-1-light dark:text-bg-1-dark;
   }
 }
 
 html,
 body {
   font-family: 'Montserrat', sans-serif;
-  @apply text-text-1;
+  @apply text-text-1-light dark:text-text-1-dark;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 html {
+  color-scheme: light dark;
+}
+
+html.light {
+  color-scheme: light;
+  background: #FAFAFA;
+}
+
+html.dark {
   color-scheme: dark;
+  background: #141218;
 }
 
 body {
+  @apply bg-bg-1-light dark:bg-bg-1-dark;
+  min-height: 100vh;
 }
+
+body {}
 
 a {
   color: inherit;
@@ -34,6 +49,7 @@ a {
   .text-balance {
     text-wrap: balance;
   }
+
   .align-center {
     text-align: center;
   }
@@ -42,6 +58,7 @@ a {
 //navigation
 .burger {
   width: 100%;
+
   &::after,
   &::before {
     content: '';
@@ -51,7 +68,25 @@ a {
     margin: auto;
     background-color: #404040;
     position: relative;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  // Light mode styles
+  .light & {
+
+    &::after,
+    &::before {
+      background-color: #64748B;
+    }
+  }
+
+  // Dark mode styles
+  .dark & {
+
+    &::after,
+    &::before {
+      background-color: #404040;
+    }
   }
 
   &::after {

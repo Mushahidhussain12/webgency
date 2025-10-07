@@ -28,14 +28,14 @@ const Index: FC<Props> = ({ close }) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="fixed right-0 top-0 z-[4000] h-screen w-[32vw] bg-gray-1 pb-[8vw] pl-[8vw] pr-[6vw] pt-[10vw] text-text-1"
+        className="fixed right-0 top-0 z-[9997] h-screen w-full sm:w-80 bg-surface-light dark:bg-gray-1-dark p-6 sm:p-8 text-text-1-light dark:text-text-1-dark transition-colors duration-300 shadow-2xl"
       >
-        <div className='w-full border-b border-white/20 uppercase text-white/60 pb-[0.4vw] mb-[2.2vw] '>
-          <h3 className='text-[0.9vw] md:text-[2vw] leading-[1.1]'>Navigation</h3>
+        <div className='w-full border-b border-text-1-light/20 dark:border-white/20 uppercase text-text-1-light/60 dark:text-white/60 pb-4 mb-8 transition-colors duration-300'>
+          <h3 className='text-lg font-semibold'>Navigation</h3>
         </div>
         <div className='flex flex-col h-full justify-between'>
 
-          <div className="flex flex-col justify-end space-y-[0.1vw]" onMouseLeave={() => setSelectedIndicator(null)}>
+          <div className="flex flex-col justify-end space-y-2" onMouseLeave={() => setSelectedIndicator(null)}>
             {NAV_ITEMS.map((item, index) => (
               <CustomLink
                 handleClick={() => smoothScroll(item.href)}
@@ -47,7 +47,7 @@ const Index: FC<Props> = ({ close }) => {
             ))}
           </div>
 
-          <Link
+          {/* <Link
             target="_blank"
             rel="noreferrer"
             href="https://github.com/Shatlyk1011/agency-website"
@@ -63,7 +63,7 @@ const Index: FC<Props> = ({ close }) => {
               ></path>
             </svg>
             <p className='text-[1vw] font-medium tracking-wide'>Give a star</p>
-          </Link>
+          </Link> */}
         </div>
 
 
@@ -71,7 +71,7 @@ const Index: FC<Props> = ({ close }) => {
       <div
         aria-label="button"
         onClick={close}
-        className="fixed bottom-0 left-0 right-0 top-0 z-[750] bg-bg-1/60 transition"
+        className="fixed bottom-0 left-0 right-0 top-0 z-[9996] bg-bg-1-light/60 dark:bg-bg-1-dark/60 transition-colors duration-300"
       ></div>
     </>
   );

@@ -975,6 +975,15 @@ const initCursor = () => {
   });
 
   window.addEventListener('mousemove', (e) => {
+    // Check if cursor should be disabled
+    const target = e.target;
+    const disableCursor = target.closest('[data-disable-cursor="true"]');
+    
+    if (disableCursor) {
+      // Disable cursor effects in approach section
+      return;
+    }
+
     let pointer = pointers[0];
     let posX = scaleByPixelRatio(e.clientX);
     let posY = scaleByPixelRatio(e.clientY);

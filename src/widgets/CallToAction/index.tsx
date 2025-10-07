@@ -16,22 +16,24 @@ const Index: FC<Props> = () => {
   return (
     <SectionOpacity classes="flex flex-col justify-center h-screen">
 
-      <div className=" mx-auto flex w-full max-w-[60vw] md:max-w-[90%] flex-1 flex-col items-center justify-center text-center">
-        <h3 className="text-[4vw] md:text-[8vw] font-medium">LET&apos;S CONNECT</h3>
-        <p className="mt-[0.6vw] text-[1.7vw] md:text-[3.2vw] font-normal text-gray-300 md:leading-[1.3]">
-          Let’s collaborate to build smart, innovative software that drives your brand forward and shapes your digital future.
+      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center text-center px-4">
+        <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-text-1-light dark:text-text-1-dark transition-colors duration-300 drop-shadow-sm">
+          LET&apos;S CONNECT
+        </h3>
+        <p className="mt-6 text-lg md:text-xl lg:text-2xl font-normal text-text-1-light/80 dark:text-gray-300 leading-relaxed transition-colors duration-300 drop-shadow-sm">
+          Let's collaborate to build smart, innovative software that drives your brand forward and shapes your digital future.
         </p>
         <Button
           onClick={handleFormToggle}
           title="SUBMIT A REQUEST"
-          classes="px-[1.8vw] py-[vw] w-[35vw] md:w-[45vw] min-h-[6vw] md:min-h-[8vw] text-[1.25vw] md:text-[2.25vw] bg-bg-1 hover:bg-bg-1/80"
-          btnClasses="mt-[1.2vw]"
+          classes="px-8 py-4 w-full max-w-sm bg-black dark:bg-bg-1-dark hover:bg-gray-800 dark:hover:bg-bg-1-dark/80 transition-colors duration-300 text-white"
+          btnClasses="mt-8"
         />
       </div>
 
-      <footer className="flex justify-between border-t border-t-gray-800 px-[5vw] py-[1.8vw] text-[1.6vw] md:text-[2vw] md:py-[2.4vw] md:px-[2vw] ">
-        <div>© 2025. <a href="https://github.com/Shatlyk1011/agency-website" target='_blank' rel="norelopener">Codurex</a></div>
-        <ul className="flex space-x-[3vw] ">
+      <footer className="flex flex-col sm:flex-row justify-between items-center border-t border-t-border-light dark:border-t-gray-800 px-4 py-6 text-sm text-text-1-light dark:text-text-1-dark transition-colors duration-300 gap-4 sm:gap-0">
+        <div>© 2025. <a href="https://github.com/Shatlyk1011/agency-website" target='_blank' rel="norelopener" className="hover:text-black dark:hover:text-accent-dark transition-colors duration-300">Codurex</a></div>
+        <ul className="flex space-x-6">
           <li>Mushahid</li>
           <li>Zaid</li>
           <li>More</li>

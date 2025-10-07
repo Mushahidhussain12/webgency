@@ -4,21 +4,69 @@ const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenCo
 
 module.exports = {
   content: ['src/components/**/*.{ts,tsx}', 'app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       screens: {
         md: { max: '600px' },
       },
       colors: {
-        primary: '#CCC2DC',
-        'bg-1': '#141218',
-        'bg-2': '#211F26',
-
-        'text-1': '#E6E0E9',
-
-        'gray-1': '#303030',
-
-        stroke: '#4A4458',
+        primary: {
+          DEFAULT: '#CCC2DC',
+          light: '#000000',
+          dark: '#CCC2DC',
+        },
+        'bg-1': {
+          DEFAULT: '#141218',
+          light: '#FAFAFA',
+          dark: '#141218',
+        },
+        'bg-2': {
+          DEFAULT: '#211F26',
+          light: '#F1F5F9',
+          dark: '#211F26',
+        },
+        'text-1': {
+          DEFAULT: '#E6E0E9',
+          light: '#0F172A',
+          dark: '#E6E0E9',
+        },
+        'gray-1': {
+          DEFAULT: '#303030',
+          light: '#E2E8F0',
+          dark: '#303030',
+        },
+        stroke: {
+          DEFAULT: '#4A4458',
+          light: '#CBD5E1',
+          dark: '#4A4458',
+        },
+        // Additional theme-aware colors
+        'surface': {
+          light: '#FFFFFF',
+          dark: '#1A1A1A',
+        },
+        'surface-secondary': {
+          light: '#F8FAFC',
+          dark: '#2A2A2A',
+        },
+        'border': {
+          light: '#E2E8F0',
+          dark: '#404040',
+        },
+        'accent': {
+          light: '#000000',
+          dark: '#8B5CF6',
+        },
+        // Hero section specific colors
+        'hero-text': {
+          light: '#000000',
+          dark: '#E6E0E9',
+        },
+        'hero-bg': {
+          light: 'rgba(255, 255, 255, 0.8)',
+          dark: 'rgba(0, 0, 0, 0.5)',
+        },
       },
 
       animation: {
