@@ -2,6 +2,7 @@
 
 import { FC, useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionOpacity from '@/components/ui/SectionOpacity';
@@ -178,7 +179,7 @@ const Index: FC<Props> = () => {
                                     transition={{ duration: 0.5, delay: 0.1 }}
                                     className="text-xl md:text-2xl font-medium text-text-1-light dark:text-text-1-dark mb-8 leading-relaxed"
                                 >
-                                    "{testimonials[currentTestimonial].content}"
+                                    &ldquo;{testimonials[currentTestimonial].content}&rdquo;
                                 </motion.blockquote>
 
                                 {/* Author */}
@@ -190,13 +191,19 @@ const Index: FC<Props> = () => {
                                     transition={{ duration: 0.5, delay: 0.2 }}
                                     className="flex items-center justify-center space-x-4"
                                 >
-                                    <motion.img
-                                        src={testimonials[currentTestimonial].image}
-                                        alt={testimonials[currentTestimonial].name}
-                                        className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700"
+                                    <motion.div 
+                                        className="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700"
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.2 }}
-                                    />
+                                    >
+                                        <Image
+                                            src={testimonials[currentTestimonial].image}
+                                            alt={testimonials[currentTestimonial].name}
+                                            width={64}
+                                            height={64}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </motion.div>
                                     <div className="text-left">
                                         <h4 className="text-lg font-semibold text-text-1-light dark:text-text-1-dark">
                                             {testimonials[currentTestimonial].name}
@@ -225,9 +232,11 @@ const Index: FC<Props> = () => {
                                     whileHover={{ scale: 1.02 }}
                                 >
                                     <div className="flex items-center space-x-3 mb-3">
-                                        <img
+                                        <Image
                                             src={testimonial.image}
                                             alt={testimonial.name}
+                                            width={40}
+                                            height={40}
                                             className="w-10 h-10 rounded-full object-cover"
                                         />
                                         <div>
@@ -240,7 +249,7 @@ const Index: FC<Props> = () => {
                                         </div>
                                     </div>
                                     <p className="text-text-1-light/80 dark:text-text-1-dark/80 text-xs leading-relaxed">
-                                        "{testimonial.content.substring(0, 100)}..."
+                                        &ldquo;{testimonial.content.substring(0, 100)}...&rdquo;
                                     </p>
                                     <div className="flex mt-3">
                                         {[...Array(testimonial.rating)].map((_, i) => (
@@ -263,9 +272,11 @@ const Index: FC<Props> = () => {
                                     whileHover={{ scale: 1.02 }}
                                 >
                                     <div className="flex items-center space-x-3 mb-4">
-                                        <img
+                                        <Image
                                             src={testimonial.image}
                                             alt={testimonial.name}
+                                            width={48}
+                                            height={48}
                                             className="w-12 h-12 rounded-full object-cover"
                                         />
                                         <div>
@@ -278,7 +289,7 @@ const Index: FC<Props> = () => {
                                         </div>
                                     </div>
                                     <p className="text-text-1-light/80 dark:text-text-1-dark/80 text-sm leading-relaxed">
-                                        "{testimonial.content.substring(0, 120)}..."
+                                        &ldquo;{testimonial.content.substring(0, 120)}...&rdquo;
                                     </p>
                                     <div className="flex mt-4">
                                         {[...Array(testimonial.rating)].map((_, i) => (
