@@ -24,6 +24,7 @@ const ContactPage: FC = () => {
         _quickness: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -62,7 +63,7 @@ const ContactPage: FC = () => {
             });
 
             if (response.ok) {
-                alert('Thank you for your submission! We will get back to you soon.');
+                setNotification({ type: 'success', message: 'Thank you for your submission! We will get back to you soon.' });
                 setFormData({
                     first: '',
                     phone: '',
@@ -75,12 +76,16 @@ const ContactPage: FC = () => {
                     _pages: '',
                     _quickness: ''
                 });
+                // Auto-hide notification after 5 seconds
+                setTimeout(() => setNotification(null), 5000);
             } else {
-                alert('There was an error submitting the form. Please try again.');
+                setNotification({ type: 'error', message: 'There was an error submitting the form. Please try again.' });
+                setTimeout(() => setNotification(null), 5000);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('There was an error submitting the form. Please try again.');
+            setNotification({ type: 'error', message: 'There was an error submitting the form. Please try again.' });
+            setTimeout(() => setNotification(null), 5000);
         } finally {
             setIsSubmitting(false);
         }
@@ -113,25 +118,25 @@ const ContactPage: FC = () => {
                         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
                     >
                         {/* Page Title */}
-                        <motion.div variants={itemVariants} className="text-center mb-16">
-                            <SectionTitle title="CONTACT US." classes="mb-6" />
+                        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
+                            <SectionTitle title="CONTACT US." classes="mb-4 md:mb-6" />
                             <motion.div
                                 variants={itemVariants}
-                                className="w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300 mx-auto rounded-full"
+                                className="w-16 md:w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300 mx-auto rounded-full"
                             />
                             <motion.p
                                 variants={itemVariants}
-                                className="mt-6 text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto"
+                                className="mt-4 md:mt-6 text-sm md:text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto px-4"
                             >
                                 Get in touch with us to discuss your project requirements
                             </motion.p>
                         </motion.div>
 
                         {/* Contact Form */}
-                        <motion.div variants={itemVariants} className="bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-border-light/50 dark:border-gray-1/50 shadow-lg">
-                            <form onSubmit={handleSubmit} className="space-y-8">
+                        <motion.div variants={itemVariants} className="bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm rounded-2xl p-4 md:p-8 lg:p-12 border border-border-light/50 dark:border-gray-1/50 shadow-lg">
+                            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                                 {/* Basic Information */}
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -189,7 +194,7 @@ const ContactPage: FC = () => {
                                     />
                                 </motion.div>
 
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -252,7 +257,7 @@ const ContactPage: FC = () => {
                                     </select>
                                 </motion.div>
 
-                                <div className="grid md:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -360,6 +365,42 @@ const ContactPage: FC = () => {
             </section>
 
             <ShadowCursor />
+
+            {/* Custom Notification */}
+            {notification && (
+                <motion.div
+                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 50, scale: 0.9 }}
+                    className={`fixed bottom-4 right-4 z-50 p-4 rounded-xl shadow-lg backdrop-blur-sm border max-w-sm ${notification.type === 'success'
+                        ? 'bg-green-500/90 text-white border-green-400'
+                        : 'bg-red-500/90 text-white border-red-400'
+                        }`}
+                >
+                    <div className="flex items-center space-x-3">
+                        <div className="flex-shrink-0">
+                            {notification.type === 'success' ? (
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                            ) : (
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                </svg>
+                            )}
+                        </div>
+                        <p className="text-sm font-medium">{notification.message}</p>
+                        <button
+                            onClick={() => setNotification(null)}
+                            className="flex-shrink-0 ml-2 text-white/80 hover:text-white transition-colors"
+                        >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </motion.div>
+            )}
         </>
     );
 };

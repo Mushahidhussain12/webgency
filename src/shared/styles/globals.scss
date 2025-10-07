@@ -55,60 +55,7 @@ a {
   }
 }
 
-//navigation
-.burger {
-  width: 100%;
-
-  &::after,
-  &::before {
-    content: '';
-    display: block;
-    height: 0.2vw;
-    width: 40%;
-    margin: auto;
-    background-color: #404040;
-    position: relative;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-
-  // Light mode styles
-  .light & {
-
-    &::after,
-    &::before {
-      background-color: #64748B;
-    }
-  }
-
-  // Dark mode styles
-  .dark & {
-
-    &::after,
-    &::before {
-      background-color: #404040;
-    }
-  }
-
-  &::after {
-    top: -0.3vw;
-  }
-
-  &::before {
-    top: 0.3vw;
-  }
-}
-
-.burgerActive {
-  &::after {
-    transform: rotate(45deg);
-    top: -0.1vw;
-  }
-
-  &::before {
-    transform: rotate(-45deg);
-    top: 0px;
-  }
-}
+//navigation - Modern hamburger menu is now handled in the Navigation component with Tailwind CSS
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

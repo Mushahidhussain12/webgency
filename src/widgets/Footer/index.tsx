@@ -11,7 +11,7 @@ const Index: FC<Props> = () => {
             <ul className="flex space-x-6">
                 <li>Mushahid</li>
                 <li>Zaid</li>
-                <li>More</li>
+                <li>Kazim</li>
             </ul>
         </footer>
     );

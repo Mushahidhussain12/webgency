@@ -68,11 +68,15 @@ const Index: FC<Props> = ({ close }) => {
 
 
       </motion.div>
-      <div
+      <motion.div
         aria-label="button"
         onClick={close}
-        className="fixed bottom-0 left-0 right-0 top-0 z-[9996] bg-bg-1-light/60 dark:bg-bg-1-dark/60 transition-colors duration-300"
-      ></div>
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed bottom-0 left-0 right-0 top-0 z-[9996] bg-bg-1-light/60 dark:bg-bg-1-dark/60"
+      ></motion.div>
     </>
   );
 };

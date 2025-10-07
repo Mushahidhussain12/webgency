@@ -21,7 +21,7 @@ const Index: FC<Props> = () => {
         { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
         { name: 'Tesla', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
         { name: 'Spotify', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
-        { name: 'Uber', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.svg' },
+
         { name: 'Airbnb', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' },
         { name: 'Twitter', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg' },
         { name: 'LinkedIn', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png' }
@@ -67,15 +67,15 @@ const Index: FC<Props> = () => {
                     className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
                 >
                     {/* Section Title */}
-                    <motion.div variants={itemVariants} className="text-center mb-16">
-                        <SectionTitle title="TRUSTED BY." classes="mb-6" />
+                    <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
+                        <SectionTitle title="TRUSTED BY." classes="mb-4 md:mb-6" />
                         <motion.div
                             variants={itemVariants}
-                            className="w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300 mx-auto rounded-full"
+                            className="w-16 md:w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300 mx-auto rounded-full"
                         />
                         <motion.p
                             variants={itemVariants}
-                            className="mt-6 text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto"
+                            className="mt-4 md:mt-6 text-sm md:text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto px-4"
                         >
                             We're proud to work with industry leaders and innovative companies
                         </motion.p>
@@ -117,22 +117,22 @@ const Index: FC<Props> = () => {
                     </motion.div>
 
                     {/* Additional Static Logos */}
-                    <motion.div variants={itemVariants} className="mt-12">
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <motion.div variants={itemVariants} className="mt-8 md:mt-12">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-6">
                             {companies.slice(0, 6).map((company, index) => (
                                 <motion.div
                                     key={company.name}
                                     className="flex items-center justify-center"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                                    transition={{ delay: index * 0.05, duration: 0.5 }}
                                     whileHover={{ scale: 1.05 }}
                                 >
-                                    <div className="bg-white/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg p-3 border border-border-light/30 dark:border-gray-1/30 shadow-md hover:shadow-lg transition-all duration-300">
+                                    <div className="bg-white/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-border-light/30 dark:border-gray-1/30 shadow-md hover:shadow-lg transition-all duration-300 w-full">
                                         <img
                                             src={company.logo}
                                             alt={company.name}
-                                            className="h-6 md:h-8 w-auto object-contain transition-all duration-300"
+                                            className="h-5 md:h-6 lg:h-8 w-auto object-contain transition-all duration-300 mx-auto"
                                             loading="lazy"
                                         />
                                     </div>

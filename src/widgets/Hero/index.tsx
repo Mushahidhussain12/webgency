@@ -79,14 +79,16 @@ const Hero = () => {
       >
         {/* Main Content */}
         <div className="relative z-30 text-center px-4 sm:px-6 lg:px-8">
-          {/* Circle Background - Gradient version */}
+          {/* Circle Background - Simple approach */}
           <div
-            className={`absolute inset-0 ${theme === 'light'
-                ? 'bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.15)_60%,_rgba(0,0,0,0.35)_100%)] bg-gray-100/80'
-                : 'bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0)_0%,_rgba(255,255,255,0.1)_60%,_rgba(255,255,255,0.25)_100%)] bg-gray-800/80'
-              }`}
-          ></div>
-
+            data-disable-cursor="true"
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-0
+              ${theme === 'light'
+                ? 'bg-gray-400/80'
+                : 'bg-gray-800/60'
+              }
+              w-[80vw] h-[80vw] sm:w-[70vw] sm:h-[70vw] md:w-[60vw] md:h-[60vw] lg:w-[50vw] lg:h-[50vw] xl:w-[45vw] xl:h-[45vw] 2xl:w-[40vw] 2xl:h-[40vw]`}
+          />
 
           <motion.h1
             ref={heading1}
@@ -115,14 +117,16 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.button
-              className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="relative z-40 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
+              Contact Us
             </motion.button>
             <motion.button
-              className="px-8 py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-xl font-semibold hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-colors duration-300"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              className="relative z-40 px-8 py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-xl font-semibold hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

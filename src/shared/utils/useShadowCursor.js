@@ -14,7 +14,7 @@ const initCursor = () => {
     PRESSURE_ITERATIONS: 20,
     CURL: 3,
     SPLAT_RADIUS: 0.6,
-    SPLAT_FORCE: 6500,
+    SPLAT_FORCE: 3000,
     SHADING: true,
     // COLOR_UPDATE_SPEED: 1000,
     COLOR_UPDATE_SPEED: 10,
