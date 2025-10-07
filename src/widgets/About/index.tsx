@@ -116,7 +116,7 @@ const Index: FC<Props> = () => {
                   variants={itemVariants}
                   className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-1-light dark:text-text-1-dark leading-tight"
                 >
-                  We're a{' '}
+                  We&apos;re a{' '}
                   <span className="bg-gradient-to-r from-primary-light to-accent-light dark:from-primary-dark dark:to-accent-dark bg-clip-text text-transparent">
                     young, close-knit team
                   </span>

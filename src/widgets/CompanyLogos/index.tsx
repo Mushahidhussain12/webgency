@@ -104,9 +104,11 @@ const Index: FC<Props> = () => {
                                         transition={{ duration: 0.2 }}
                                     >
                                         <div className="bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-border-light/50 dark:border-gray-1/50 shadow-lg hover:shadow-xl transition-all duration-300">
-                                            <img
+                                            <Image
                                                 src={company.logo}
                                                 alt={company.name}
+                                                width={120}
+                                                height={48}
                                                 className="h-8 md:h-12 w-auto object-contain transition-all duration-300"
                                                 loading="lazy"
                                             />
