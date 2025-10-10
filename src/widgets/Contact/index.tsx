@@ -145,7 +145,7 @@ const Index: FC<Props> = () => {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-text-1-light dark:text-text-1-dark">Email</h4>
-                                        <p className="text-text-1-light/70 dark:text-text-1-dark/70">hello@codurex.com</p>
+                                        <p className="text-text-1-light/70 dark:text-text-1-dark/70">hello@coderizz.com</p>
                                     </div>
                                 </motion.div>
 
