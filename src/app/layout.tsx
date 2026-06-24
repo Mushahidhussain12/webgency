@@ -10,6 +10,7 @@ import Loader from '@/components/ui/Loader';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 import '@/shared/styles/globals.scss';
+import 'lenis/dist/lenis.css';
 
 
 
@@ -23,20 +24,16 @@ export default function RootLayout({
 
 
   useEffect(() => {
-    // Optimized Lenis configuration for smooth scrolling
+    // Optimized type-safe Lenis configuration for smooth scrolling
     const lenis = new Lenis({
-      duration: 0.8, // Faster duration for less lag
-      easing: (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t, // Ease in-out
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 0.5, // Reduced for smoother feel
-      smoothTouch: false,
-      touchMultiplier: 1.2,
+      duration: 1.2, // standard duration for smooth transitions
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard easing function
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0, // standard scroll speed
+      touchMultiplier: 1.0,
       infinite: false,
-      // Add performance optimizations
-      syncTouch: true,
-      touchInertiaMultiplier: 35,
     });
 
     let rafId: number;

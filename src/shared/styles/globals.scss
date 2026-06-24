@@ -20,16 +20,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   @apply text-text-1-light dark:text-text-1-dark;
   transition: color 0.3s ease, background-color 0.3s ease;
-  /* Optimize scrolling performance */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 html {
   color-scheme: light dark;
-  /* Optimize scrolling performance */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
   /* Prevent scroll jank */
   overflow-x: hidden;
 }
@@ -75,8 +69,7 @@ a {
 
   /* Optimize scrolling performance */
   .smooth-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
   }
 
   /* Prevent layout shifts */
