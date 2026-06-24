@@ -245,7 +245,7 @@ const Index: FC<Props> = () => {
                                                 onChange={handleChange}
                                                 className="w-full px-4 py-3 bg-white/60 dark:bg-gray-800/60 border border-border-light/50 dark:border-gray-1/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-400/50 dark:focus:ring-gray-500/50 transition-colors duration-300"
                                             >
-                                                <option value="">Rang</option>
+                                                <option value="">Select budget</option>
                                                 <option value="2-4">$2K - $4K</option>
                                                 <option value="4-8">$4K - $8K</option>
                                                 <option value="8-10">$8K - $10K</option>

@@ -13,19 +13,19 @@ const Index: FC<Props> = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-    const companies = [
-        { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-        { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-        { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-        { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-        { name: 'Meta', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-        { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-        { name: 'Tesla', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
-        { name: 'Spotify', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
-
-        { name: 'Airbnb', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' },
-        { name: 'Twitter', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg' },
-        { name: 'LinkedIn', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png' }
+    const technologies = [
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+        { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
+        { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+        { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+        { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+        { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+        { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+        { name: 'Flutter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' },
+        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+        { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
+        { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg' },
+        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
     ];
 
     const containerVariants = {
@@ -52,7 +52,7 @@ const Index: FC<Props> = () => {
     };
 
     return (
-        <section id="companies" className="relative border-t border-border-light dark:border-gray-1 bg-gradient-to-b from-bg-2-light to-bg-1-light dark:from-bg-2-dark dark:to-bg-1-dark py-16 md:py-24 lg:py-32 overflow-hidden">
+        <section id="technologies" className="relative border-t border-border-light dark:border-gray-1 bg-gradient-to-b from-bg-2-light to-bg-1-light dark:from-bg-2-dark dark:to-bg-1-dark py-16 md:py-24 lg:py-32 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 -left-20 w-80 h-80 bg-gray-200/20 dark:bg-gray-800/20 rounded-full blur-3xl" />
@@ -69,7 +69,7 @@ const Index: FC<Props> = () => {
                 >
                     {/* Section Title */}
                     <motion.div variants={itemVariants} className="text-center mb-8 md:mb-16">
-                        <SectionTitle title="TRUSTED BY." classes="mb-4 md:mb-6" />
+                        <SectionTitle title="TECHNOLOGIES." classes="mb-4 md:mb-6" />
                         <motion.div
                             variants={itemVariants}
                             className="w-16 md:w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300 mx-auto rounded-full"
@@ -78,17 +78,17 @@ const Index: FC<Props> = () => {
                             variants={itemVariants}
                             className="mt-4 md:mt-6 text-sm md:text-lg text-text-1-light/70 dark:text-text-1-dark/70 max-w-2xl mx-auto px-4"
                         >
-                            We&apos;re proud to work with industry leaders and innovative companies
+                            Tools &amp; frameworks we use to build fast, reliable, and scalable digital products
                         </motion.p>
                     </motion.div>
 
-                    {/* Company Logos - Horizontal Scrolling */}
+                    {/* Tech Logos - Horizontal Scrolling Marquee */}
                     <motion.div variants={itemVariants} className="relative">
                         <div className="overflow-hidden">
                             <motion.div
                                 className="flex space-x-8 md:space-x-12 lg:space-x-16"
                                 animate={{
-                                    x: [0, -100 * companies.length],
+                                    x: [0, -100 * technologies.length],
                                 }}
                                 transition={{
                                     duration: 30,
@@ -96,51 +96,57 @@ const Index: FC<Props> = () => {
                                     ease: 'linear',
                                 }}
                             >
-                                {[...companies, ...companies].map((company, index) => (
+                                {[...technologies, ...technologies].map((tech, index) => (
                                     <motion.div
-                                        key={`${company.name}-${index}`}
-                                        className="flex-shrink-0 flex items-center justify-center"
+                                        key={`${tech.name}-${index}`}
+                                        className="flex-shrink-0 flex flex-col items-center justify-center gap-2"
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.2 }}
                                     >
                                         <div className="bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-border-light/50 dark:border-gray-1/50 shadow-lg hover:shadow-xl transition-all duration-300">
                                             <Image
-                                                src={company.logo}
-                                                alt={company.name}
+                                                src={tech.logo}
+                                                alt={tech.name}
                                                 width={120}
                                                 height={48}
                                                 className="h-8 md:h-12 w-auto object-contain transition-all duration-300"
                                                 loading="lazy"
                                             />
                                         </div>
+                                        <span className="text-xs md:text-sm font-medium text-text-1-light/60 dark:text-text-1-dark/60">
+                                            {tech.name}
+                                        </span>
                                     </motion.div>
                                 ))}
                             </motion.div>
                         </div>
                     </motion.div>
 
-                    {/* Additional Static Logos */}
+                    {/* Static Grid */}
                     <motion.div variants={itemVariants} className="mt-8 md:mt-12">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-6">
-                            {companies.slice(0, 6).map((company, index) => (
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 md:gap-6">
+                            {technologies.map((tech, index) => (
                                 <motion.div
-                                    key={company.name}
-                                    className="flex items-center justify-center"
+                                    key={tech.name}
+                                    className="flex flex-col items-center justify-center gap-2"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: index * 0.05, duration: 0.5 }}
                                     whileHover={{ scale: 1.05 }}
                                 >
-                                    <div className="bg-white/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-border-light/30 dark:border-gray-1/30 shadow-md hover:shadow-lg transition-all duration-300 w-full">
+                                    <div className="bg-white/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg p-3 md:p-4 border border-border-light/30 dark:border-gray-1/30 shadow-md hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center">
                                         <Image
-                                            src={company.logo}
-                                            alt={company.name}
+                                            src={tech.logo}
+                                            alt={tech.name}
                                             width={120}
                                             height={32}
-                                            className="h-5 md:h-6 lg:h-8 w-auto object-contain transition-all duration-300 mx-auto"
+                                            className="h-6 md:h-8 lg:h-10 w-auto object-contain transition-all duration-300"
                                             loading="lazy"
                                         />
                                     </div>
+                                    <span className="text-[10px] md:text-xs font-medium text-text-1-light/50 dark:text-text-1-dark/50">
+                                        {tech.name}
+                                    </span>
                                 </motion.div>
                             ))}
                         </div>

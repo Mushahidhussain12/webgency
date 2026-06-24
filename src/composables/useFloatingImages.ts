@@ -1,53 +1,36 @@
-import gsap from 'gsap';
+import { useCallback, RefObject } from 'react';
 
-const useFloatingImages = (ref1: any, ref2: any, ref3: any) => {
-  let requestAnimationFrameId: any = null;
-  let xForce = 0;
-  let yForce = 0;
-  const easing = 0.1;
-  const speed = 0.02;
+/**
+ * Custom hook that applies a subtle parallax floating effect
+ * to three image container refs based on mouse movement.
+ */
+const useFloatingImages = (
+  ref1: RefObject<HTMLElement | null>,
+  ref2: RefObject<HTMLElement | null>,
+  ref3: RefObject<HTMLElement | null>
+) => {
+  const manageMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
 
-  const manageMouseMove = (e: any) => {
-    const { movementX, movementY } = e;
-    xForce = movementX * speed;
-    yForce = movementY * speed;
+      // Normalise cursor position to [-0.5, 0.5]
+      const xNorm = clientX / innerWidth - 0.5;
+      const yNorm = clientY / innerHeight - 0.5;
 
-    // console.log("manageMouseMove");
-
-    if (requestAnimationFrameId == null) {
-      requestAnimationFrameId = requestAnimationFrame(animate);
-    }
-  };
-
-  // make images auto movable "chat gpt?"
-  const lerp = (start: number, target: number, amount: number) => start * (1 - amount) + target * amount;
-
-  const animate = () => {
-    xForce = lerp(xForce, 0, easing);
-    yForce = lerp(yForce, 0, easing);
-    gsap.set(ref1.current, {
-      x: `+=${xForce * 0.2}`,
-      y: `+=${yForce * 0.2}`,
-    });
-    gsap.set(ref2.current, {
-      x: `+=${xForce * 0.6}`,
-      y: `+=${yForce * 0.6}`,
-    });
-    gsap.set(ref3.current, {
-      x: `+=${xForce * 0.15}`,
-      y: `+=${yForce * 0.15}`,
-    });
-
-    if (Math.abs(xForce) < 0.01) xForce = 0;
-    if (Math.abs(yForce) < 0.01) yForce = 0;
-
-    if (xForce != 0 || yForce != 0) {
-      requestAnimationFrame(animate);
-    } else {
-      cancelAnimationFrame(requestAnimationFrameId);
-      requestAnimationFrameId = null;
-    }
-  };
+      // Each ref moves at a different speed for depth
+      if (ref1.current) {
+        ref1.current.style.transform = `translate(${xNorm * 25}px, ${yNorm * 25}px)`;
+      }
+      if (ref2.current) {
+        ref2.current.style.transform = `translate(${xNorm * -15}px, ${yNorm * -15}px)`;
+      }
+      if (ref3.current) {
+        ref3.current.style.transform = `translate(${xNorm * 35}px, ${yNorm * 35}px)`;
+      }
+    },
+    [ref1, ref2, ref3]
+  );
 
   return { manageMouseMove };
 };

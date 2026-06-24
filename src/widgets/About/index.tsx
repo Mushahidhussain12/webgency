@@ -39,10 +39,10 @@ const Index: FC<Props> = () => {
         }, stepDuration);
       };
 
-      animateNumber(0, 150, (value) => setStats(prev => ({ ...prev, projects: value })));
-      animateNumber(0, 75, (value) => setStats(prev => ({ ...prev, clients: value })));
-      animateNumber(0, 100, (value) => setStats(prev => ({ ...prev, satisfaction: value })));
-      animateNumber(0, 5, (value) => setStats(prev => ({ ...prev, years: value })));
+      animateNumber(0, 20, (value) => setStats(prev => ({ ...prev, projects: value })));
+      animateNumber(0, 15, (value) => setStats(prev => ({ ...prev, clients: value })));
+      animateNumber(0, 98, (value) => setStats(prev => ({ ...prev, satisfaction: value })));
+      animateNumber(0, 2, (value) => setStats(prev => ({ ...prev, years: value })));
     }
   }, [isInView]);
 

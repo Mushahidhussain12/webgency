@@ -27,7 +27,7 @@ export const CARDS = [
   {
     title: 'Design',
     description:
-      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
+      'We craft stunning user interfaces, cohesive brand identities, and intuitive user experiences. From wireframes to pixel-perfect prototypes, our design process ensures your product looks premium and feels effortless to use.',
     services: [
       ['Web app', 'Branding'],
       ['Mobile app', 'Logo'],
@@ -38,7 +38,7 @@ export const CARDS = [
   {
     title: 'Fullstack development',
     description:
-      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
+      'We build robust web applications end-to-end using modern frameworks like Next.js, React, and Node.js. From database architecture to REST/GraphQL APIs to responsive frontends, we handle the full stack so you can focus on growing your business.',
     services: [
       ['Online shop', 'Web application'],
       ['CMS', 'API Development'],
@@ -49,7 +49,7 @@ export const CARDS = [
   {
     title: 'Mobile development',
     description:
-      'We design and develop web and mobile applications, craft unique branding and logos, and deliver digital experiences that inspire trust, growth, and innovation.',
+      'We develop performant cross-platform mobile applications using Flutter and React Native. With native-like performance, push notifications, offline support, and smooth animations, your app will feel right at home on both iOS and Android.',
     services: [['Android', 'IOS']],
     number: '03.',
     classes: 'border-t border-gray-1/50',
@@ -84,7 +84,7 @@ export const APPROACH_CARDS = [
     icon: Fifth,
     title: 'Final result',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates laboriosam ad eius, culpa soluta ab. Beatae optio quas adipisci aliquam quia velit soluta iste dicta, modi tenetur magnam, aut laborum placeat est. Unde minima amet illo eveniet qui sunt omnis laudantium laboriosam, officia dignissimos molestias tempore velit. Provident, explicabo. Dolor.',
+      'After thorough testing, we deploy your product to production, set up monitoring, and hand over complete documentation. We provide ongoing support to ensure everything runs smoothly, and we\'re always available for future iterations and improvements.',
   },
 ];
 

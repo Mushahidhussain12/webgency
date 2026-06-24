@@ -104,7 +104,7 @@ const Hero = () => {
 
           <motion.h2
             ref={heading2}
-            className="z-30 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 dark:text-gray-300 transition-colors duration-500 mt-6 max-w-4xl mx-auto"
+            className="relative z-30 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 dark:text-gray-300 transition-colors duration-500 mt-6 max-w-4xl mx-auto"
             style={{ opacity }}
             variants={itemVariants}
           >

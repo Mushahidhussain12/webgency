@@ -17,53 +17,53 @@ const Index: FC<Props> = () => {
     const testimonials = [
         {
             id: 1,
-            name: "John Smith",
-            role: "CEO, TechCorp",
-            company: "TechCorp",
-            image: "https://ui-avatars.com/api/?name=John+Smith&background=random",
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+            name: "Ahmed Raza",
+            role: "Founder, PakTradeHub",
+            company: "PakTradeHub",
+            image: "https://ui-avatars.com/api/?name=Ahmed+Raza&background=1a1a2e&color=e94560&bold=true",
+            content: "Coderizz built our entire e-commerce platform from scratch, including product listings, payment integration with JazzCash and Easypaisa, and a real-time inventory dashboard. They delivered two weeks ahead of schedule and the platform handled 5,000+ orders in the first month without a single hiccup.",
             rating: 5,
-            project: "Web Development"
+            project: "E-commerce Platform"
         },
         {
             id: 2,
-            name: "Sarah Johnson",
-            role: "Founder, DesignStudio",
-            company: "DesignStudio",
-            image: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=random",
-            content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+            name: "Sarah Mitchell",
+            role: "Marketing Director, BrightPath Digital",
+            company: "BrightPath Digital",
+            image: "https://ui-avatars.com/api/?name=Sarah+Mitchell&background=0f3460&color=e94560&bold=true",
+            content: "We needed a complete brand overhaul and a new marketing website that reflected our identity. The team at Coderizz designed a stunning visual system and built a blazing-fast Next.js site. Our bounce rate dropped by 40% and lead conversions went up by 25% in the first quarter.",
             rating: 5,
-            project: "Mobile App"
+            project: "Brand Redesign & Website"
         },
         {
             id: 3,
-            name: "Michael Brown",
-            role: "Marketing Director, GrowthCo",
-            company: "GrowthCo",
-            image: "https://ui-avatars.com/api/?name=Michael+Brown&background=random",
-            content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
-            rating: 5,
-            project: "E-commerce"
+            name: "Bilal Hassan",
+            role: "CEO, UrbanNest Realty",
+            company: "UrbanNest Realty",
+            image: "https://ui-avatars.com/api/?name=Bilal+Hassan&background=16213e&color=0f3460&bold=true",
+            content: "Our property listing portal needed map integration, advanced search filters, and a CRM for our agents. Coderizz handled the full-stack development and even suggested UX improvements we hadn't thought of. The final product exceeded our expectations.",
+            rating: 4,
+            project: "Property Portal"
         },
         {
             id: 4,
-            name: "Emily Davis",
-            role: "CTO, InnovateLab",
-            company: "InnovateLab",
-            image: "https://ui-avatars.com/api/?name=Emily+Davis&background=random",
-            content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.",
+            name: "Emma Thornton",
+            role: "Product Lead, Streamline SaaS",
+            company: "Streamline SaaS",
+            image: "https://ui-avatars.com/api/?name=Emma+Thornton&background=533483&color=e94560&bold=true",
+            content: "We hired Coderizz to build the frontend of our project management tool. They delivered clean, component-based React code with excellent TypeScript coverage. Communication was smooth across time zones, and they were always responsive on Slack.",
             rating: 5,
-            project: "Web Application"
+            project: "SaaS Web Application"
         },
         {
             id: 5,
-            name: "David Wilson",
-            role: "Owner, BoutiqueStore",
-            company: "BoutiqueStore",
-            image: "https://ui-avatars.com/api/?name=David+Wilson&background=random",
-            content: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio nam libero tempore.",
+            name: "Fatima Zahra",
+            role: "Co-founder, EduSpark Academy",
+            company: "EduSpark Academy",
+            image: "https://ui-avatars.com/api/?name=Fatima+Zahra&background=1a1a2e&color=533483&bold=true",
+            content: "Coderizz developed our cross-platform mobile app in Flutter with offline support, push notifications, and a student progress dashboard. The app launched on both App Store and Google Play, and our teachers love how intuitive it is.",
             rating: 5,
-            project: "Online Store"
+            project: "Mobile App (Flutter)"
         }
     ];
 
@@ -71,7 +71,7 @@ const Index: FC<Props> = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-        }, 5000);
+        }, 6000);
         return () => clearInterval(interval);
     }, [testimonials.length]);
 
@@ -155,10 +155,10 @@ const Index: FC<Props> = () => {
                             >
                                 {/* Stars */}
                                 <div className="flex justify-center mb-6">
-                                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                                    {[...Array(5)].map((_, i) => (
                                         <motion.svg
                                             key={i}
-                                            className="w-6 h-6 text-yellow-400"
+                                            className={`w-6 h-6 ${i < testimonials[currentTestimonial].rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`}
                                             fill="currentColor"
                                             viewBox="0 0 20 20"
                                             initial={{ opacity: 0, scale: 0 }}
@@ -224,7 +224,7 @@ const Index: FC<Props> = () => {
                     <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {/* Mobile: Show 2 testimonials */}
                         <div className="sm:hidden space-y-4">
-                            {testimonials.slice(0, 2).map((testimonial, index) => (
+                            {testimonials.slice(0, 2).map((testimonial) => (
                                 <motion.div
                                     key={testimonial.id}
                                     variants={testimonialVariants}
@@ -249,11 +249,11 @@ const Index: FC<Props> = () => {
                                         </div>
                                     </div>
                                     <p className="text-text-1-light/80 dark:text-text-1-dark/80 text-xs leading-relaxed">
-                                        &ldquo;{testimonial.content.substring(0, 100)}...&rdquo;
+                                        &ldquo;{testimonial.content.substring(0, 120)}...&rdquo;
                                     </p>
                                     <div className="flex mt-3">
-                                        {[...Array(testimonial.rating)].map((_, i) => (
-                                            <svg key={i} className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className={`w-3 h-3 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
                                         ))}
@@ -264,7 +264,7 @@ const Index: FC<Props> = () => {
 
                         {/* Desktop: Show 3 testimonials */}
                         <div className="hidden sm:contents">
-                            {testimonials.slice(0, 3).map((testimonial, index) => (
+                            {testimonials.slice(0, 3).map((testimonial) => (
                                 <motion.div
                                     key={testimonial.id}
                                     variants={testimonialVariants}
@@ -289,11 +289,11 @@ const Index: FC<Props> = () => {
                                         </div>
                                     </div>
                                     <p className="text-text-1-light/80 dark:text-text-1-dark/80 text-sm leading-relaxed">
-                                        &ldquo;{testimonial.content.substring(0, 120)}...&rdquo;
+                                        &ldquo;{testimonial.content.substring(0, 150)}...&rdquo;
                                     </p>
                                     <div className="flex mt-4">
-                                        {[...Array(testimonial.rating)].map((_, i) => (
-                                            <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
                                         ))}
